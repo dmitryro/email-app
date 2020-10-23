@@ -23,6 +23,13 @@ To shut down:
 ```bash
 docker-compose down
 ```
+### Update .env
+```
+mv .env_template .env
+```
+Edit .env in your preferred editor and use the values specific to your
+environment
+
 
 ### To run GUI:
 Once the API has started and is running, navigate your broser to:
