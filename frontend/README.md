@@ -57,6 +57,16 @@ Command | Description
 
 ## React components used
 
-* One 
-* Two
-* 
+React Components | Description
+--- | ---
+`Canvas`| Used to design the actual email template.
+`design` | Used to consolidate other components.
+`RenderTemplate` | Used to display the template before sending it.
+`ReviewButton` | Used to display review/send buttons.
+`SentMessage` | used to report success or failure sending email.
+`TagRecord` | Used to display editable row for a tag used in email.
+`TextBlock` | Used to display text area to add new text to the email.
+`Tag` | Used to display a tag
+`TagSelector` | Used for the dropdown list to select a tag for an email.
+`TemplatePreview` | Used to display template in the process of being edited.
+`Text` | Used to display a text.
