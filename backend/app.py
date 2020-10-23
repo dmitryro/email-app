@@ -19,8 +19,6 @@ from flask.logging import default_handler
 from flasgger import Swagger
 from flask_api import status    # HTTP Status Codes
 #from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from logging.config import dictConfig
 from werkzeug.exceptions import NotFound
 from blueprints.templates import template_blueprint
