@@ -22,11 +22,9 @@ and open browser at `0.0.0.0:5000`, `0.0.0.0` with nginx, or use Postman or curl
 
       
 # Sample POST Payload (use Swagger or Postman):
-       ```
        {"template": "Dear {{contact_first_name}}! We are ready to previde {{discount_rate}} discount!",
         "values": [{"contact_first_name":"John"}, {"discount_rate":"20%"}]}
 
-       ```
 
 # Email utilities
    `SMTP` messaging is used, values should be specified in `.env` to be used, or provided using `{{to}}` and
