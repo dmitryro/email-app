@@ -28,24 +28,20 @@ from blueprints.templates import template_blueprint
 # Pull options from environment
 debug = (os.getenv('DEBUG', 'False') == 'True')
 port = os.getenv('PORT', '5000')
-database_url = os.getenv('DATABASE_URL', 'postgresql+psycopg2://postgres:postgres@postgres:5432/postgres')
-sqlalchemy_notifications = (os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS', 'False') == 'True')
 
 
 def create_app():
     # Initialize Flask
     app = Flask(__name__)
     app.register_blueprint(template_blueprint)
-    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = sqlalchemy_notifications
     # Configure Swagger before initilaizing it
     app.config['SWAGGER'] = {
         "swagger_version": "2.0",
         "specs": [
             {
                 "version": "0.0.1",
-                "title": "SmartForm API",
-                "description": "SmartForm API using swagger",
+                "title": "Email API",
+                "description": "Email API using swagger",
                 "endpoint": 'v1_spec',
                 "route": '/v1/spec'
             }
@@ -56,11 +52,8 @@ def create_app():
 app = create_app()
 # Initialize Swagger after configuring it
 Swagger(app)
-#CORS(app)
 
 
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
 ######################################################################
 # ERROR Handling
