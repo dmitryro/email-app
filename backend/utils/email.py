@@ -26,7 +26,7 @@ def process_email(*args, **kwargs):
         SMTP_HOST = read_env('SMTP_HOST')
         TO_EMAIL = read_env('TO_EMAIL')
         FROM = f'Simon <{FROM_EMAIL}>'
-        SUBJECT = "New message from a customer"
+        SUBJECT = "New message from team"
 
         for v in values:
             opening = "{{"
