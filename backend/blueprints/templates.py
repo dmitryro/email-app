@@ -5,7 +5,6 @@ from flasgger import Swagger
 from flask_api import status    # HTTP Status Codes
 from werkzeug.local import LocalProxy
 
-
 from utils.email import process_email
 
 template_blueprint = Blueprint('actions', __name__, template_folder='templates')
@@ -27,21 +26,25 @@ def send_template():
       - application/json
     parameters:
       - in: body
-        name: name
+        name: body
         required: true
         schema:
-          id: script_data
+          id: template_data
           required:
-            - name
+            - template
+            - values
           properties:
-            name:
+            template:
               type: string
-              description: Profile Key
+              description: Template to be sent
+            values:
+              type: list
+              description: List of tags and their values
     responses:
-      201:
-        description: Tag created
+      200:
+        description: Email sent
         schema:
-          $ref: '#/definitions/Tag'
+          $ref: '#/definitions/Template`
       400:
         description: Bad Request (the posted data was not valid)
     """
@@ -54,6 +57,6 @@ def send_template():
         logger.info("Successfully sent email ...")
         return make_response(jsonify(result), status.HTTP_200_OK)
     except Exception as e:
-        logger.error(f"==> It just didn't work - {e}")
+        logger.error(f"Failed sending email - {e}")
         result = {"message": f"error sending email {e}"}
         return make_response(jsonify(result), status.HTTP_500_INTERNAL_SERVER_ERROR)
