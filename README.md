@@ -15,8 +15,10 @@ git clone https://github.com/dmitryro/email-app
 docker-compose up -d --build
 ```
 
-This will expose the Flask application's endpoints on port `5000`, nginx on port 89 
+This will expose the Flask application's endpoints on port `5000`, nginx on port `80`
 and React/Material UI on port `8000`
+Please note that this nginx configuration is set up to be `CORS` tolerant so any 
+connection from the frontend to the backend must be safe to use `CORS` headers by default.
 
 To shut down:
 
