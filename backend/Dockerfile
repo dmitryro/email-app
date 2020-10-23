@@ -6,10 +6,8 @@ ENV HOST 0.0.0.0
 ENV PORT 5000
 ENV DEBUG true
 
-COPY ./entrypoint.sh /entrypoint.sh
 COPY . /api
 WORKDIR /api
-RUN chmod +x /entrypoint.sh
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
